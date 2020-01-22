@@ -64,7 +64,8 @@ DEVICE_PACKAGE_OVERLAYS += \
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+    $(LOCAL_PATH)/permissions/privapp-permissions_hi6250.xml:system/etc/permissions/privapp-permissions_hi6250.xml
 
 # Properties
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
