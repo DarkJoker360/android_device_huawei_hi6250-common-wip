@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The LineageOS Project
+# Copyright 2020 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,12 +12,22 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
+
+# This contains the module build definitions for the hardware-specific
+# components for this device.
+#
+# As much as possible, those components should be built unconditionally,
+# with device-specific names to avoid collisions, to avoid device-specific
+# bitrot and build breakages. Building a component unconditionally does
+# *not* include it on all devices, so it is safe even with hardware-specific
+# components.
 
 def FullOTA_InstallEnd(info):
     info.script.AppendExtra("ifelse(is_mounted(\"/vendor\"), unmount(\"/vendor\"));")
     info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/system", "/system");');
     info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/vendor", "/vendor");');
-    info.script.AppendExtra('assert(run_program("/sbin/sh", "/system/bin/releasetools.kirin970.sh") == 0);')
+    info.script.AppendExtra('assert(run_program("/sbin/sh", "/system/bin/releasetools.hi6250.sh") == 0);')
     info.script.AppendExtra('unmount("/system");');
     info.script.AppendExtra('unmount("/vendor");');
 

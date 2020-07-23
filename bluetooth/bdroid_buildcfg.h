@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2020 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
@@ -12,12 +28,7 @@ typedef struct {
 } device_t;
 
 static const device_t devices[] = {
-    {"HWALP", "Mate 10"},
-    {"HWBKL", "Honor View 10"},
-    {"HWBLA", "Mate 10 Pro"},
-    {"HWCLT", "P20 Pro"},
-    {"HWCOL", "Honor 10"},
-    {"HWEML", "P20"},
+    {"HW6250", "HI6250"},
 };
 
 static inline const char *BtmGetDefaultName()

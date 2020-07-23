@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The LineageOS Project
+# Copyright 2020 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,34 +14,24 @@
 # limitations under the License.
 #
 
-$(call inherit-product-if-exists, vendor/huawei/kirin970-common/kirin970-common-vendor.mk)
+# This contains the module build definitions for the hardware-specific
+# components for this device.
+#
+# As much as possible, those components should be built unconditionally,
+# with device-specific names to avoid collisions, to avoid device-specific
+# bitrot and build breakages. Building a component unconditionally does
+# *not* include it on all devices, so it is safe even with hardware-specific
+# components.
 
-# APN configs
-ifneq ($(TARGET_AOSP_BASED),)
+$(call inherit-product-if-exists, vendor/huawei/hi6250-common/hi6250-common-vendor.mk)
+
+# APN
 PRODUCT_COPY_FILES += \
-        device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
-endif
-
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay
-
-ifeq ($(TARGET_AOSP_BASED),)
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay-lineage
-endif
+    device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
 # Audio
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/etc/usb_audio_policy_configuration.xml
-
-# Device init scripts
-PRODUCT_PACKAGES += \
-    init.bcm43xx.rc \
-    init.hisi.rc \
-    init.kirin970.rc \
-    init.kirin970.ab.rc \
-    init.kirin970.environ.rc
 
 # Display
 PRODUCT_PACKAGES += \
@@ -66,6 +56,11 @@ PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     nfc_nci.pn54x.default
 
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay \
+    $(LOCAL_PATH)/overlay-lineage
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml \
@@ -82,23 +77,29 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.cust.cdrom=/dev/null
 
 # Radio
-ifeq ($(TARGET_AOSP_BASED),)
 PRODUCT_PACKAGES += \
     qti-telephony-common
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
-endif
+
+# Ramdisk
+PRODUCT_PACKAGES += \
+    init.bcm43xx.rc \
+    init.hisi.rc \
+    init.hi6250.rc \
+    init.hi6250.ab.rc \
+    init.hi6250.environ.rc
 
 # Recovery
 PRODUCT_PACKAGES += \
     resize2fs_static
 
-# Release tools
+# Release Tools
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/releasetools/releasetools.kirin970.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/releasetools.kirin970.sh
+    $(LOCAL_PATH)/releasetools/releasetools.hi6250.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/releasetools.hi6250.sh
 
-# Remove unwanted packages
+# Remove Packages
 PRODUCT_PACKAGES += \
     RemovePackages
 
@@ -113,7 +114,7 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service.kirin970
+    android.hardware.usb@1.0-service.hi6250
 
 # VNDK
 PRODUCT_COPY_FILES += \
