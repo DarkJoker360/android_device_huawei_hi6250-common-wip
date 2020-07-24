@@ -23,9 +23,10 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
-include build/make/target/board/generic_arm64_a/BoardConfig.mk
-
 VENDOR_PATH := device/huawei/hi6250-common
+
+# 64 Bit
+TARGET_USES_64_BIT_BINDER := true
 
 # Arch
 TARGET_ARCH := arm64
@@ -40,9 +41,15 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a15
 
+# Audio
+USE_XML_AUDIO_POLICY_CONF := 1
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(VENDOR_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
+
+# Bootloader
+TARGET_NO_BOOTLOADER := true
 
 # Camera
 TARGET_CAMERA_NEEDS_ADD_STATES_IN_ENUMERATE := true
@@ -51,7 +58,14 @@ TARGET_CAMERA_NEEDS_ADD_STATES_IN_ENUMERATE := true
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x2080000U
 
 # Graphics
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+TARGET_USES_HWC2 := true
+
+# File System
 TARGET_EXFAT_DRIVER := exfat
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
+TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
 # Kernel
 BOARD_KERNEL_IMAGE_NAME := Image
@@ -73,7 +87,12 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2207764736
 endif
 BOARD_CACHEIMAGE_PARTITION_SIZE := 16777216
 
+BOARD_USES_METADATA_PARTITION := true
+
+TARGET_COPY_OUT_VENDOR := vendor
+
 # Properties
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
 
 # Radio
@@ -98,6 +117,7 @@ TARGET_LD_SHIM_LIBS := \
 
 # Treble
 BOARD_AVB_ENABLE := false
+BOARD_VNDK_VERSION := current
 
 # Vintf
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(VENDOR_PATH)/framework_manifest.xml

@@ -1,3 +1,6 @@
+# APPS
+ro.control_privapp_permissions=disable
+
 # Audio
 audio.deep_buffer.media=true
 ro.config.media_vol_steps=25
@@ -5,6 +8,9 @@ ro.config.vc_call_vol_steps=7
 
 # Camera
 persist.sys.camera.huawei=true
+
+# Dex
+ro.cp_system_other_odex=0
 
 # Perf
 ro.vendor.qti.sys.fw.bg_apps_limit=60
