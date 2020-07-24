@@ -23,6 +23,9 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
+
 $(call inherit-product-if-exists, vendor/huawei/hi6250-common/hi6250-common-vendor.mk)
 
 # APN
@@ -160,7 +163,19 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vndk-compat/vndksp.libraries.26.txt:system/etc/vndksp.libraries.26.txt \
     $(LOCAL_PATH)/vndk-compat/ld.config.27.txt:system/etc/ld.config.27.txt
 
+PRODUCT_COPY_FILES += \
+    build/make/target/product/vndk/init.gsi.rc:system/etc/init/init.gsi.rc \
+    build/make/target/product/vndk/init.vndk-27.rc:system/etc/init/gsi/init.vndk-27.rc
+
+PRODUCT_PACKAGES += \
+    ld.config.vndk_lite.txt
+
 # Wi-Fi
 PRODUCT_PACKAGES += \
     android.hardware.wifi.hostapd@1.0 \
     android.hardware.wifi@1.2
+
+# Zygote
+PRODUCT_COPY_FILES += \
+    system/core/rootdir/init.zygote64_32.rc:root/init.zygote64_32.rc \
+    system/core/rootdir/init.zygote32_64.rc:root/init.zygote32_64.rc
