@@ -29,6 +29,17 @@ typedef struct {
 
 static const device_t devices[] = {
     {"HW6250", "HI6250"},
+    {"HWANE", "Huawei P20 Lite"},
+    {"HWALN", "Honor 6X"},
+    {"HWBND", "Honor 7X"},
+    {"HWDLS", "Huawei Enjoy 7S"},
+    {"HWFIG", "Huawei P Smart 2018"},
+    {"HWLLD", "Honor 9 Lite"},
+    {"HWPRA", "Honor 8 Lite"},
+    {"HWPRA", "Huawei P8 Lite 2017"},
+    {"HWPRA", "Huawei P9 Lite 2017"},
+    {"HWRNE", "Huawei Mate 10 Lite"},
+    {"HWWAR", "Huawei P10 Lite"},
 };
 
 static inline const char *BtmGetDefaultName()
