@@ -27,7 +27,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE       := init.hi6250.rc
-LOCAL_MODULE_TAGS  := optional eng
+LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
 LOCAL_SRC_FILES    := etc/init.hi6250.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/init
@@ -35,7 +35,7 @@ include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE	   := init.hisi.rc
-LOCAL_MODULE_TAGS  := optional eng
+LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
 LOCAL_SRC_FILES    := etc/init.hisi.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/init/connectivity
@@ -43,7 +43,7 @@ include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE	   := init.bcm43xx.rc
-LOCAL_MODULE_TAGS  := optional eng
+LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
 LOCAL_SRC_FILES    := etc/init.bcm43xx.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/init/connectivity
@@ -51,7 +51,7 @@ include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE       := init.hi6250.ab.rc
-LOCAL_MODULE_TAGS  := optional eng
+LOCAL_MODULE_TAGS  := optional
 LOCAL_POST_INSTALL_CMD := \
     mkdir -p $(PRODUCT_OUT)/system && \
     ln -sf /system $(PRODUCT_OUT)/system/system
@@ -59,7 +59,7 @@ include $(BUILD_PHONY_PACKAGE)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE       := init.hi6250.environ.rc
-LOCAL_MODULE_TAGS  := optional eng
+LOCAL_MODULE_TAGS  := optional
 LOCAL_POST_INSTALL_CMD := \
     mkdir -p $(PRODUCT_OUT)/system/etc/init && \
     sed -e 's?%BOOTCLASSPATH%?$(PRODUCT_BOOTCLASSPATH)?g' $(LOCAL_PATH)/etc/init.hi6250.environ.rc > $(PRODUCT_OUT)/system/etc/init/init.hi6250.environ.rc && \
