@@ -1,2 +1,7 @@
 # Allow ueventd to read /proc/bootdevice
 allow ueventd proc_bootdevice:file r_file_perms;
+
+#[temp] Set ueventd to permissive, needed to boot huawei,
+# because it hits "unlabeled" file when trying to access some files in
+# /firmware
+permissive ueventd;
