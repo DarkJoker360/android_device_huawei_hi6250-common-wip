@@ -161,8 +161,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vndk-compat/ld.config.26.txt:system/etc/ld.config.26.txt \
 
 PRODUCT_COPY_FILES += \
-    build/make/target/product/vndk/init.gsi.rc:system/etc/init/init.gsi.rc \
-    build/make/target/product/vndk/init.vndk-27.rc:system/etc/init/gsi/init.vndk-27.rc
+    build/make/target/product/gsi/init.gsi.rc:system/etc/init/init.gsi.rc \
+    build/make/target/product/gsi/init.vndk-27.rc:system/etc/init/gsi/init.vndk-27.rc
 
 PRODUCT_PACKAGES += \
     ld.config.vndk_lite.txt
