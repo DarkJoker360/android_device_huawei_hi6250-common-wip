@@ -1,6 +1,3 @@
-# Audio
-/system/etc/usb_audio_policy_configuration.xml    u:object_r:vendor_configs_file:s0
-
 # bfm
 /dev/hw_bfm             u:object_r:bfmr_device:s0
 
@@ -25,9 +22,6 @@
 /data/facapp                    u:object_r:cust_data_file:s0
 /data/custom_cota\.bin          u:object_r:cust_data_file:s0
 
-# Display engine
-/system/bin/displayengineserver@1.0    u:object_r:displayengineserver_exec:s0
-/system/bin/displayengineserver@1.1    u:object_r:displayengineserver_exec:s0
 
 # DMD
 /dev/dsm                   u:object_r:dmd_device:s0
@@ -65,7 +59,3 @@
 
 # Splash2
 /splash2(/.*)?                                  u:object_r:splash2_data_file:s0
-
-# Wi-Fi
-/system/bin/hw/hostapd                                        u:object_r:hal_wifi_hostapd_device_exec:s0
-/system/bin/hw/hostapd_hisi                                   u:object_r:hal_wifi_hostapd_device_exec:s0
