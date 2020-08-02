@@ -28,6 +28,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
 
 $(call inherit-product-if-exists, vendor/huawei/hi6250-common/hi6250-common-vendor.mk)
 
+# APEX
+PRODUCT_PACKAGES += \
+    apex-setup.rc
+
 # APN
 PRODUCT_COPY_FILES += \
     device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
