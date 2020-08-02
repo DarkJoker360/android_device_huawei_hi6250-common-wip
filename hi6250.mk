@@ -125,11 +125,11 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.cust.cdrom=/dev/null
 
 # Radio
-PRODUCT_PACKAGES += \
-    qti-telephony-common
+#PRODUCT_PACKAGES += \
+#    qti-telephony-common
 
-PRODUCT_BOOT_JARS += \
-    telephony-ext
+#PRODUCT_BOOT_JARS += \
+#    telephony-ext
 
 # Ramdisk
 PRODUCT_PACKAGES += \
