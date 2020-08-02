@@ -52,6 +52,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/fingerprint.kl:system/usr/keylayout/fingerprint.kl
 
+# Kernel
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/kernel/dummykernel:kernel
+
 # NFC
 PRODUCT_PACKAGES += \
     NfcNci \
