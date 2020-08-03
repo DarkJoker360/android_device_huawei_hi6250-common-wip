@@ -29,6 +29,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := apex-setup.rc
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/apex-setup.rc
+LOCAL_SRC_FILES    := apex-setup.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/init
 include $(BUILD_PREBUILT)
