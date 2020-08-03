@@ -23,9 +23,6 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
-
 $(call inherit-product-if-exists, vendor/huawei/hi6250-common/hi6250-common-vendor.mk)
 
 # APEX
@@ -175,8 +172,3 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.wifi.hostapd@1.0 \
     android.hardware.wifi@1.2
-
-# Zygote
-PRODUCT_COPY_FILES += \
-    system/core/rootdir/init.zygote64_32.rc:root/init.zygote64_32.rc \
-    system/core/rootdir/init.zygote32_64.rc:root/init.zygote32_64.rc
